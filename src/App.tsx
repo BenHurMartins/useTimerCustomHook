@@ -1,23 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import useTimer from "./useTimer";
 
 function App() {
+  const timeLeft = useTimer(Date.now() + 1000 * 60 * 60 * 38);
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <p>Days left: {timeLeft.days}</p>
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+          {timeLeft.hours}:{timeLeft.minutes}:{timeLeft.seconds}
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
     </div>
   );
